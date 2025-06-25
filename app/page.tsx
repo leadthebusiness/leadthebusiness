@@ -327,7 +327,7 @@ export default function BaseshGalaWebsite() {
                 <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
                   <span className="text-white">Basesh</span>
                   <br />
-                  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                  <span className="text-yellow-600">
                     Gala
                   </span>
                 </h1>
@@ -466,7 +466,7 @@ export default function BaseshGalaWebsite() {
                 <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 mb-4">About Basesh Gala</Badge>
                 <h2 className="text-5xl font-bold mb-6">
                   <span className="text-white">Transforming </span>
-                  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                  <span className="text-yellow-600">
                     Businesses
                   </span>
                 </h2>
@@ -526,7 +526,7 @@ export default function BaseshGalaWebsite() {
           >
             <h2 className="text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-white">Figures reveal insights beyond </span>
-              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <span className="text-yellow-600">
                 Words
               </span>
             </h2>
@@ -567,7 +567,7 @@ export default function BaseshGalaWebsite() {
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-white">Find details of various courses and programs that could help expand your </span>
-              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <span className="text-yellow-600">
                 business
               </span>
             </h2>
@@ -638,7 +638,7 @@ export default function BaseshGalaWebsite() {
           >
             {/* <h2 className="text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-white">Success </span>
-              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <span className="text-yellow-600">
                 Stories
               </span>
             </h2>
@@ -736,7 +736,7 @@ export default function BaseshGalaWebsite() {
             >
               <h2 className="text-5xl lg:text-6xl font-bold">
                 <span className="text-white">Ready to </span>
-                <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                <span className="text-yellow-600 bg-transparent">
                   Transform?
                 </span>
               </h2>

@@ -46,7 +46,7 @@ const SocialConnectSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-yellow-600  mb-4">
             Connect with Basesh Gala
           </h2>
           <div className="flex justify-center items-center space-x-2">
@@ -84,7 +84,7 @@ const SocialConnectSection = () => {
                   </h3>
 
                   {/* Follower Count */}
-                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-6">
+                  <div className="text-3xl font-bold text-yellow-600 mb-6">
                     {platform.followers}
                   </div>
 

@@ -74,7 +74,7 @@ export default function ImageCarousel3D() {
                 {/* Navigation Buttons */}
                 <h2 className="text-5xl lg:text-6xl font-bold mb-6">
                     <span className="text-white">Success </span>
-                    <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                    <span className="text-yellow-600 bg-clip-text text-transparent">
                         Stories
                     </span>
                 </h2>
