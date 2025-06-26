@@ -42,6 +42,9 @@ export default function CoursesCarousel() {
   const [loading, setLoading] = useState(true)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
+  // Responsive slides per view
+  const [slidesToShow, setSlidesToShow] = useState(3)
+
   const fetchCourses = async () => {
     const query = `*[_type == "course"] | order(featured desc, _createdAt desc)[0...8] {
       _id,
@@ -66,6 +69,23 @@ export default function CoursesCarousel() {
     return await client.fetch(query)
   }
 
+  // Handle responsive slides
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1)
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2)
+      } else {
+        setSlidesToShow(3)
+      }
+    }
+
+    handleResize() // Set initial value
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   useEffect(() => {
     const loadCourses = async () => {
       try {
@@ -82,11 +102,17 @@ export default function CoursesCarousel() {
     loadCourses()
   }, [])
 
+  // Calculate max slides based on courses length and slides to show
+  const maxSlides = Math.max(0, courses.length - slidesToShow)
+
   // Auto-scroll functionality
   useEffect(() => {
-    if (courses.length > 0) {
+    if (courses.length > slidesToShow) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.max(1, courses.length - 2))
+        setCurrentIndex((prevIndex) => {
+          const nextIndex = prevIndex + 1
+          return nextIndex > maxSlides ? 0 : nextIndex
+        })
       }, 4000) // Change slide every 4 seconds
 
       return () => {
@@ -95,7 +121,7 @@ export default function CoursesCarousel() {
         }
       }
     }
-  }, [courses.length])
+  }, [courses.length, slidesToShow, maxSlides])
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-IN", {
@@ -114,14 +140,20 @@ export default function CoursesCarousel() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current)
     }
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.max(1, courses.length - 2))
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1
+      return nextIndex > maxSlides ? 0 : nextIndex
+    })
   }
 
   const prevSlide = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current)
     }
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + Math.max(1, courses.length - 2)) % Math.max(1, courses.length - 2))
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex - 1
+      return nextIndex < 0 ? maxSlides : nextIndex
+    })
   }
 
   if (loading) {
@@ -194,7 +226,6 @@ export default function CoursesCarousel() {
               <Award className="w-4 h-4 text-yellow-500" />
               <span className="text-gray-300 font-medium">{courses.length}+ Courses</span>
             </div>
-            
           </div>
         </motion.div>
 
@@ -206,37 +237,48 @@ export default function CoursesCarousel() {
           viewport={{ once: true }}
           className="relative"
         >
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 lg:-left-16 z-20">
-            <Button
-              onClick={prevSlide}
-              size="icon"
-              className="w-12 h-12 bg-gray-900/80 backdrop-blur-sm border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300 shadow-lg"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </Button>
-          </div>
+          {/* Navigation Buttons - Only show if we have more courses than slides to show */}
+          {courses.length > slidesToShow && (
+            <>
+              <div className="absolute top-1/2 -translate-y-1/2 -left-4 lg:-left-16 z-20">
+                <Button
+                  onClick={prevSlide}
+                  size="icon"
+                  className="w-12 h-12 bg-gray-900/80 backdrop-blur-sm border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300 shadow-lg"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </Button>
+              </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 lg:-right-16 z-20">
-            <Button
-              onClick={nextSlide}
-              size="icon"
-              className="w-12 h-12 bg-gray-900/80 backdrop-blur-sm border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300 shadow-lg"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </Button>
-          </div>
+              <div className="absolute top-1/2 -translate-y-1/2 -right-4 lg:-right-16 z-20">
+                <Button
+                  onClick={nextSlide}
+                  size="icon"
+                  className="w-12 h-12 bg-gray-900/80 backdrop-blur-sm border border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300 shadow-lg"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </Button>
+              </div>
+            </>
+          )}
 
           {/* Carousel */}
           <div className="overflow-hidden rounded-2xl">
             <motion.div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
               }}
             >
               {courses.map((course, index) => (
-                <div key={course._id} className="w-full lg:w-1/3 flex-shrink-0 px-3">
+                <div 
+                  key={course._id} 
+                  className={`flex-shrink-0 px-3 ${
+                    slidesToShow === 1 ? 'w-full' : 
+                    slidesToShow === 2 ? 'w-1/2' : 
+                    'w-1/3'
+                  }`}
+                >
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -324,7 +366,6 @@ export default function CoursesCarousel() {
                             <Clock className="w-3 h-3" />
                             <span>{course.duration || "Self-paced"}</span>
                           </div>
-                          
                         </div>
 
                         {/* Pricing and CTA */}
@@ -359,18 +400,20 @@ export default function CoursesCarousel() {
             </motion.div>
           </div>
 
-          {/* Carousel Indicators */}
-          <div className="flex justify-center mt-8 gap-2">
-            {Array.from({ length: Math.max(1, courses.length - 2) }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-yellow-500 scale-125" : "bg-gray-600 hover:bg-gray-500 hover:scale-110"
-                }`}
-              />
-            ))}
-          </div>
+          {/* Carousel Indicators - Only show if we have more courses than slides to show */}
+          {courses.length > slidesToShow && (
+            <div className="flex justify-center mt-8 gap-2">
+              {Array.from({ length: maxSlides + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "bg-yellow-500 scale-125" : "bg-gray-600 hover:bg-gray-500 hover:scale-110"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
 
         {/* Bottom CTA */}
