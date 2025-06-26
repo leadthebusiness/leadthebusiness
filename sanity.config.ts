@@ -27,11 +27,8 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
-  // Disable Sanity's built-in authentication
-  auth: {
-    mode: "replace",
-    providers: [],
-  },
+  
+  
   // Optional: Add custom branding
   studio: {
     components: {
