@@ -13,7 +13,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if (typeof AbortSignal !== 'undefined' && !AbortSignal.timeout) {
+              AbortSignal.timeout = function(milliseconds) {
+                const controller = new AbortController();
+                setTimeout(() => controller.abort(), milliseconds);
+                return controller.signal;
+              };
+            }
+          `
+        }} />
+      </head>
       <body className='bg-black'>{children}</body>
     </html>
   )
