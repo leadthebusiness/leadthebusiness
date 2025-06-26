@@ -39,6 +39,9 @@ import InfiniteCarousel from "@/components/Coro"
 import SocialConnectSection from "@/components/Social"
 import Carousel3D from "@/components/Coro3d"
 import MediaCoverageSection from "@/components/Media"
+import ServicesSection from "@/components/Services"
+import AboutPlatformSection from "@/components/AboutPlat"
+import WhyLTBWorksSection from "@/components/Works"
 
 // Count-up animation hook
 function useCountUp(end: number, duration = 2000) {
@@ -107,9 +110,7 @@ export default function BaseshGalaWebsite() {
     "Scale",
     "Gallery",
     "Blog",
-    "About BG",
-    "Contact Us",
-    "39S Foundation",
+    "Contact",
   ]
 
   // Stats data with count-up
@@ -248,7 +249,7 @@ export default function BaseshGalaWebsite() {
               <Link href="/" className="flex items-center space-x-3">
                 
                   <Image
-                    src="/logo.png"
+                    src="/lead_logo.png"
                     alt="Basesh Gala Logo"
                     width={120}
                     height={120}
@@ -322,37 +323,36 @@ export default function BaseshGalaWebsite() {
             <motion.div variants={staggerContainer} initial="initial" animate="animate" className="space-y-8">
               <motion.div variants={fadeInUp}>
                 <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 mb-6 px-4 py-2 text-sm">
-                  🚀 Your Business Success Partner
+                  🚀 Lead The Business by
                 </Badge>
-                <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
-                  <span className="text-white">Basesh</span>
-                  <br />
-                  <span className="text-yellow-600">
-                    Gala
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  <span className="text-white">Chandrabhan Singh </span>
+                  
+                  <span className="text-yellow-600 ">
+                    Rajawat
                   </span>
                 </h1>
               </motion.div>
 
-              <motion.div variants={fadeInUp}  className="space-y-4">
+              <motion.div variants={fadeInUp}  className="space-y-1">
                 <h2 className="text-2xl lg:text-3xl text-yellow-500 font-semibold">
-                  Your Business Coach for Hand-Holding & Mentorship
+                  Real Business. Real Systems. Real Results. 
                 </h2>
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  Become Top 3% Entrepreneur with the help of Best Business Coach in India
+                 Helping young entrepreneurs build businesses that grow, lead, and last.
                 </p>
               </motion.div>
 
-              {/* <motion.p variants={fadeInUp} className="text-lg text-gray-400 leading-relaxed max-w-2xl">
-                I am your dedicated guide to entrepreneurial success. As a business advisor for MSMEs, I convert
-                challenges into opportunities and create strategies for sustainable growth. Your success is my passion.
-              </motion.p> */}
+              <motion.p variants={fadeInUp} className="text-lg text-gray-400 leading-relaxed max-w-2xl">
+             🚀 Strategy | Leadership | Growth Systems
+              </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-yellow-500 to-yellow-600  hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300"
                 >
-                 Start your journey
+                 Start Building Today
                   <ChevronRight className="ml-2 h-6 w-6" />
                 </Button>
                 <Button
@@ -390,7 +390,7 @@ export default function BaseshGalaWebsite() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full blur-3xl opacity-30 animate-pulse" />
                     <Image
-                      src="/balesh-pic-1.png"
+                      src="/pic-square.png"
                       alt="Basesh Gala - Business Coach"
                       width={500}
                       height={500}
@@ -421,8 +421,10 @@ export default function BaseshGalaWebsite() {
         </div>
       </section>
 
+      <ServicesSection />
+
         {/* About Section with Photo */}
-      <section className="py-32 bg-black">
+      <section className="py-10 bg-black">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -434,7 +436,7 @@ export default function BaseshGalaWebsite() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-3xl" />
                 <Image
-                  src="/basesh-2-crop.png"
+                  src="/pic-4.png"
                   alt="Basesh Gala in Business Setting"
                   width={500}
                   height={600}
@@ -463,28 +465,33 @@ export default function BaseshGalaWebsite() {
               className="space-y-8"
             >
               <div>
-                <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 mb-4">About Basesh Gala</Badge>
+                <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30 mb-4">About Chandrabhan Singh Rajawat</Badge>
                 <h2 className="text-5xl font-bold mb-6">
-                  <span className="text-white">Transforming </span>
+                  <span className="text-white">Meet the Visionary Behind </span>
                   <span className="text-yellow-600">
-                    Businesses
+                    LTB
                   </span>
                 </h2>
               </div>
 
               <p className="text-xl text-gray-300 leading-relaxed">
-                With over 15 years of experience in business consulting and mentorship, I specialize in turning
-                entrepreneurial challenges into growth opportunities. My proven methodologies have helped hundreds of
-                startups, MSMEs, and SMEs achieve sustainable success.
+               I'm Chandrabhan Singh Rajawat, CMD at YOUTAG Infotech Pvt. Ltd., Business Mentor, and Leadership Coach.
+                Over the past 10+ years, I’ve helped founders escape the cycle of confusion, overwork, and burnout by creating clear systems that work.
+                My goal? To help you build a business that doesn’t rely on constant hustle—but scales on solid foundations.
+               
               </p>
 
               <div className="space-y-4">
                 {[
-                  "Business Strategy & Planning",
-                  "Startup Mentorship & Guidance",
-                  "MSME Growth Consulting",
-                  "Franchise Development",
-                  "Crisis Management & Turnaround",
+                  "CMD at YOUTAG Infotech Pvt. Ltd., Business Mentor & Leadership Coach",
+
+                  "10+ years of experience mentoring founders and entrepreneurs",
+
+"Helped founders escape confusion, overwork, and burnout",
+
+"Known for creating clear, repeatable business systems that work",
+
+"Focused on building businesses that scale without constant hustle",
                 ].map((item, index) => (
                   <motion.div
                     key={item}
@@ -494,7 +501,7 @@ export default function BaseshGalaWebsite() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center space-x-3"
                   >
-                    <CheckCircle className="w-6 h-6 text-yellow-500" />
+                    <CheckCircle className="lg:w-6 lg:h-6  w-10 h-10 text-yellow-500" />
                     <span className="text-gray-300 text-lg">{item}</span>
                   </motion.div>
                 ))}
@@ -504,7 +511,7 @@ export default function BaseshGalaWebsite() {
                 size="lg"
                 className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-4"
               >
-                Schedule a Consultation
+                “I don’t sell dreams."
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </motion.div>
@@ -512,10 +519,15 @@ export default function BaseshGalaWebsite() {
         </div>
       </section>
 
-      <UpcomingEventsCarousel />
+      
+      <AboutPlatformSection />
+
+      <WhyLTBWorksSection />
+
+       {/* <UpcomingEventsCarousel /> */}
 
       {/* Stats Section */}
-      <section className="py-32 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-32 hidden bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -556,7 +568,7 @@ export default function BaseshGalaWebsite() {
       
 
       {/* Services Section */}
-      <section className="py-32 bg-gradient-to-b from-gray-950 to-black">
+      <section className="py-32 hidden bg-gradient-to-b from-gray-950 to-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -636,71 +648,11 @@ export default function BaseshGalaWebsite() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            {/* <h2 className="text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-white">Success </span>
-              <span className="text-yellow-600">
-                Stories
-              </span>
-            </h2>
-            <p className="text-gray-400 text-xl max-w-3xl mx-auto">
-              Real transformations from real entrepreneurs who trusted us with their business journey
-            </p> */}
+          
             <Carousel3D />
           </motion.div>
 
-          {/* <Carousel className="max-w-6xl mx-auto">
-            <CarouselContent>
-              {successStories.map((story, index) => (
-                <CarouselItem key={index}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <Card className="bg-gradient-to-br from-gray-900 to-black border-2 border-yellow-500/30">
-                      <CardContent className="p-12">
-                        <div className="grid md:grid-cols-3 gap-8 items-center">
-                          <div className="text-center">
-                            <div className="relative inline-block">
-                              <Image
-                                src={story.image || "/placeholder.svg"}
-                                alt={story.name}
-                                width={120}
-                                height={120}
-                                className="rounded-full border-4 border-yellow-500/50 mx-auto mb-4"
-                              />
-                              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-yellow-500 to-yellow-600 p-2 rounded-full">
-                                <Award className="w-5 h-5 text-black" />
-                              </div>
-                            </div>
-                            <h4 className="font-bold text-xl text-white mb-1">{story.name}</h4>
-                            <p className="text-yellow-500 font-medium mb-1">{story.role}</p>
-                            <p className="text-gray-400 text-sm mb-3">{story.company}</p>
-                            <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
-                              {story.growth}
-                            </Badge>
-                          </div>
-
-                          <div className="md:col-span-2">
-                            <Quote className="w-12 h-12 text-yellow-500 opacity-50 mb-4" />
-                            <p className="text-xl text-gray-300 leading-relaxed italic mb-6">"{story.story}"</p>
-                            <div className="flex items-center space-x-1">
-                              {[...Array(story.rating)].map((_, i) => (
-                                <Star key={i} className="w-6 h-6 fill-yellow-500 text-yellow-500" />
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="bg-gray-900 border-yellow-500/30 text-yellow-500 hover:bg-yellow-500 hover:text-black -left-16" />
-            <CarouselNext className="bg-gray-900 border-yellow-500/30 text-yellow-500 hover:bg-yellow-500 hover:text-black -right-16" />
-          </Carousel> */}
+          
         </div>
       </section>
 
@@ -719,7 +671,7 @@ export default function BaseshGalaWebsite() {
               transition={{ duration: 0.8 }}
             >
               <Image
-                src="/basesh-2-crop.png"
+                src="/pic-2.png"
                 alt="Basesh Gala Consulting Session"
                 width={500}
                 height={500}
@@ -778,7 +730,7 @@ export default function BaseshGalaWebsite() {
         <div
           className="absolute inset-0 w-full h-full z-0"
           style={{
-        backgroundImage: "url('/footerimg.png')",
+        backgroundImage: "url('/')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -790,15 +742,14 @@ export default function BaseshGalaWebsite() {
           <div className="grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <Image
-                src="/logo.png"
+                src="/lead_logo.png"
                 alt="Basesh Gala Logo"
                 width={120}
                 height={120}
                 className="object-contain mb-4"
               />
           <p className="text-gray-400 mb-6 max-w-md">
-            Transforming businesses through strategic guidance, mentorship, and proven methodologies. Your success
-            is our mission.
+         Lead The Business by Chandrabhan Singh Rajawat
           </p>
           <div className="flex space-x-4">
             <Button
@@ -829,16 +780,16 @@ export default function BaseshGalaWebsite() {
           <h4 className="font-bold text-yellow-500 mb-4">Services</h4>
           <div className="space-y-2 text-gray-400">
             <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Startup Mentorship
+          Privacy Policy
             </Link>
             <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          MSME Consulting
+          Terms 
             </Link>
             <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Franchise Development
+          Contact
             </Link>
             <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Business Turnaround
+          Careers
             </Link>
           </div>
         </div>
@@ -865,7 +816,7 @@ export default function BaseshGalaWebsite() {
           </div>
 
           <div className="border-t border-yellow-500/20 mt-12 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 Basesh Gala. All rights reserved. | Designed for Success</p>
+        <p>&copy; © 2025 | YOUTAG INFOTECH PVT. LTD. | All Rights Reserved</p>
           </div>
         </div>
       </footer>

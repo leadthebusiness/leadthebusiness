@@ -47,7 +47,7 @@ const SocialConnectSection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-yellow-600  mb-4">
-            Connect with Basesh Gala
+            Connect with Chandrabhan Singh Rajawat
           </h2>
           <div className="flex justify-center items-center space-x-2">
             <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
