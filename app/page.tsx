@@ -42,6 +42,8 @@ import MediaCoverageSection from "@/components/Media"
 import ServicesSection from "@/components/Services"
 import AboutPlatformSection from "@/components/AboutPlat"
 import WhyLTBWorksSection from "@/components/Works"
+import Navigation from "@/components/Nav"
+import CoursesCarousel from "@/components/Course-coro"
 
 // Count-up animation hook
 function useCountUp(end: number, duration = 2000) {
@@ -224,7 +226,7 @@ export default function BaseshGalaWebsite() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navigation */}
-      <motion.nav
+      {/* <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
@@ -232,20 +234,14 @@ export default function BaseshGalaWebsite() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+       
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
               className="flex items-center space-x-3"
             >
-              {/* <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-500/25">
-                <span className="text-black font-bold text-xl">BG</span>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-yellow-500">Basesh Gala</div>
-                <div className="text-xs text-gray-400">Business Coach & Mentor</div>
-              </div> */}
+             
               <Link href="/" className="flex items-center space-x-3">
                 
                   <Image
@@ -261,7 +257,7 @@ export default function BaseshGalaWebsite() {
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
+           
             <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item, index) => (
                 <motion.div
@@ -281,7 +277,7 @@ export default function BaseshGalaWebsite() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
+           
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="lg:hidden text-yellow-500">
@@ -305,7 +301,9 @@ export default function BaseshGalaWebsite() {
             </Sheet>
           </div>
         </div>
-      </motion.nav>
+      </motion.nav> */}
+
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative min-h-screen py-10 flex items-center justify-center overflow-hidden">
@@ -351,9 +349,12 @@ export default function BaseshGalaWebsite() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-yellow-500 to-yellow-600  hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300"
+                  asChild
                 >
-                 Start Building Today
-                  <ChevronRight className="ml-2 h-6 w-6" />
+                  <Link href="/course">
+                    Start Building Today
+                    <ChevronRight className="ml-2 h-6 w-6" />
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
@@ -507,13 +508,7 @@ export default function BaseshGalaWebsite() {
                 ))}
               </div>
 
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-4"
-              >
-                “I don’t sell dreams."
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+             
             </motion.div>
           </div>
         </div>
@@ -523,6 +518,9 @@ export default function BaseshGalaWebsite() {
       <AboutPlatformSection />
 
       <WhyLTBWorksSection />
+
+
+      <CoursesCarousel />
 
        {/* <UpcomingEventsCarousel /> */}
 

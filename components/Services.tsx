@@ -161,16 +161,17 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <Button
+            <Button
             size="lg"
             className="bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-500 hover:from-yellow-600 hover:via-yellow-700 hover:to-yellow-600 text-black font-bold px-8 lg:px-10 py-3 lg:py-4 text-base lg:text-lg rounded-full shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300 group relative overflow-hidden"
-          >
+            onClick={() => window.location.href = "/course"}
+            >
             <span className="relative z-10 flex items-center">
               Start Your Journey
               <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          </Button>
+            </Button>
         </motion.div>
       </div>
     </section>
