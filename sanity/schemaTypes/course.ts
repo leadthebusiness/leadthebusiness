@@ -22,6 +22,20 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Course", value: "course" },
+          { title: "Event", value: "event" },
+        ],
+        layout: "radio",
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: "course",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
@@ -87,7 +101,7 @@ export default defineType({
       name: "featured",
       title: "Featured Course",
       type: "boolean",
-      description: "Mark this course as featured to highlight it",
+      description: "Mark this course as featured to highlight it and show it prominently on the homepage.",
       initialValue: false,
     }),
     defineField({
@@ -136,12 +150,14 @@ export default defineType({
       media: "thumbnail",
       price: "price",
       publishedAt: "publishedAt",
+      type: "type",
     },
     prepare(selection) {
-      const { price, publishedAt } = selection
+      const { price, publishedAt, type } = selection
+      const typeLabel = type === "event" ? "Event" : "Course"
       return {
         ...selection,
-        subtitle: `$${price} • ${publishedAt ? new Date(publishedAt).toLocaleDateString() : "Draft"}`,
+        subtitle: `${typeLabel} • ₹${price} • ${publishedAt ? new Date(publishedAt).toLocaleDateString() : "Draft"}`,
       }
     },
   },
@@ -155,6 +171,11 @@ export default defineType({
       title: "Price, Low to High",
       name: "priceAsc",
       by: [{ field: "price", direction: "asc" }],
+    },
+    {
+      title: "Type",
+      name: "typeAsc",
+      by: [{ field: "type", direction: "asc" }],
     },
   ],
 })

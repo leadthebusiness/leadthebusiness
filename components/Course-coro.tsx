@@ -34,6 +34,7 @@ interface Course {
   }
   instructor: string
   featured: boolean
+  type: string // "course" or "event"
 }
 
 export default function CoursesCarousel() {
@@ -63,7 +64,8 @@ export default function CoursesCarousel() {
         slug
       },
       instructor,
-      featured
+      featured,
+      type
     }`
 
     return await client.fetch(query)
@@ -91,7 +93,7 @@ export default function CoursesCarousel() {
       try {
         setLoading(true)
         const coursesData = await fetchCourses()
-        setCourses(coursesData)
+        setCourses(coursesData.filter((course: Course) => course.featured))
       } catch (err) {
         console.error("Error fetching courses:", err)
       } finally {
@@ -209,9 +211,9 @@ export default function CoursesCarousel() {
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-white">Transform Your Skills with </span>
+            <span className="text-white">Transform with </span>
             <span className="text-yellow-500 relative">
-              Expert Courses
+              Expert Courses & Events
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-transparent rounded-full" />
             </span>
           </h2>
@@ -224,7 +226,7 @@ export default function CoursesCarousel() {
           <div className="flex flex-wrap justify-center gap-8 mt-8">
             <div className="flex items-center gap-3 bg-gray-900/50 rounded-2xl px-6 py-3 border border-gray-800">
               <Award className="w-4 h-4 text-yellow-500" />
-              <span className="text-gray-300 font-medium">{courses.length}+ Courses</span>
+              <span className="text-gray-300 font-medium">{courses.length}+ Courses/Events</span>
             </div>
           </div>
         </motion.div>
@@ -342,12 +344,12 @@ export default function CoursesCarousel() {
                         {/* Category and Rating */}
                         <div className="flex items-center justify-between mb-3">
                           <Badge variant="outline" className="border-yellow-500/30 text-yellow-400 text-xs">
-                            {course.category?.title || "General"}
+                            {course.type || "Course"}
                           </Badge>
-                          <div className="flex items-center gap-1 text-gray-400">
+                          {/* <div className="flex items-center gap-1 text-gray-400">
                             <Users className="w-3 h-3" />
                             <span className="text-xs">{course.studentsEnrolled || 0}</span>
-                          </div>
+                          </div> */}
                         </div>
 
                         {/* Title */}
@@ -371,7 +373,7 @@ export default function CoursesCarousel() {
                         {/* Pricing and CTA */}
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="text-xl font-bold text-yellow-500">{formatPrice(course.price || 0)}</div>
+                            <div className="text-xl font-bold text-yellow-500">{course.price === 0 ? "Free" : formatPrice(course.price || 0)}</div>
                             {course.originalPrice && course.originalPrice > course.price && (
                               <div className="text-sm text-gray-500 line-through">
                                 {formatPrice(course.originalPrice)}
@@ -383,7 +385,7 @@ export default function CoursesCarousel() {
                               size="sm"
                               className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 hover:from-yellow-500 hover:to-yellow-600 text-yellow-400 hover:text-black border border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 text-xs font-semibold"
                             >
-                              View Course
+                              View {course.type === "event" ? "Event" : "Course"}
                             </Button>
                           </Link>
                         </div>
@@ -430,7 +432,7 @@ export default function CoursesCarousel() {
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300 group"
             >
               <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-              Explore All Courses
+              Explore All Courses/Events
             </Button>
           </Link>
         </motion.div>

@@ -63,6 +63,7 @@ interface Course {
   certificate: boolean
   lifetime: boolean
   language: string
+  type: string
 }
 
 interface CoursePageProps {
@@ -144,7 +145,8 @@ export default function CoursePage({ params }: CoursePageProps) {
       featured,
       certificate,
       lifetime,
-      language
+      language,
+      type
     }`
 
     return await client.fetch(query, { slug: courseSlug })
@@ -164,8 +166,9 @@ export default function CoursePage({ params }: CoursePageProps) {
           notFound()
           return
         }
-
+        console.log("Fetched course data:", courseData)
         setCourse(courseData)
+
       } catch (err) {
         setError("Failed to load course. Please try again later.")
         console.error("Error fetching course:", err)
@@ -292,7 +295,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <Button size="lg" className="bg-yellow-500/90 hover:bg-yellow-500 text-black font-semibold">
                     <Play className="w-6 h-6 mr-2" />
-                    Preview Course
+                    Preview {course.type || "Course"}
                   </Button>
                 </div>
               </div>
@@ -359,7 +362,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                     <div className="text-center lg:text-left">
                       <div className="flex items-center justify-center lg:justify-start gap-4 mb-2">
                         <div className="text-3xl lg:text-4xl font-bold text-yellow-500">
-                          {formatPrice(course.price)}
+                          {course.price === 0 ? "Free" : formatPrice(course.price)}
                         </div>
                         {course.originalPrice && course.originalPrice > course.price && (
                           <div className="text-lg lg:text-xl text-gray-500 line-through">
@@ -460,7 +463,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 transition={{ delay: 0.4 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6">Course Overview</h2>
+                <h2 className="text-2xl mb-2"> {course.type.charAt(0).toUpperCase() + course.type.slice(1)} Overview</h2>
                 <div className="prose prose-lg prose-invert max-w-none bg-gray-900/20 rounded-2xl p-6 lg:p-8 border border-gray-800/50">
                   <PortableText value={course.content} components={portableTextComponents} />
                 </div>

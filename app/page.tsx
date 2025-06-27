@@ -44,6 +44,7 @@ import AboutPlatformSection from "@/components/AboutPlat"
 import WhyLTBWorksSection from "@/components/Works"
 import Navigation from "@/components/Nav"
 import CoursesCarousel from "@/components/Course-coro"
+import TestimonialCarousel from "@/components/Review"
 
 // Count-up animation hook
 function useCountUp(end: number, duration = 2000) {
@@ -356,14 +357,14 @@ export default function BaseshGalaWebsite() {
                     <ChevronRight className="ml-2 h-6 w-6" />
                   </Link>
                 </Button>
-                <Button
+                {/* <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 py-4 text-lg transition-all duration-300"
                 >
                   <Play className="mr-2 h-6 w-6" />
                   Watch Success Stories
-                </Button>
+                </Button> */}
               </motion.div>
             </motion.div>
 
@@ -554,7 +555,7 @@ export default function BaseshGalaWebsite() {
         </div>
       </section>
 
-      <InfiniteCarousel />
+      {/* <InfiniteCarousel /> */}
 
 
       
@@ -637,7 +638,7 @@ export default function BaseshGalaWebsite() {
       </section>
 
       {/* Success Stories Carousel */}
-      <section className="py-8 bg-black">
+      {/* <section className="py-8 bg-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -652,9 +653,11 @@ export default function BaseshGalaWebsite() {
 
           
         </div>
-      </section>
+      </section> */}
 
-      <MediaCoverageSection />
+      <TestimonialCarousel />
+
+      {/* <MediaCoverageSection /> */}
 
       <SocialConnectSection />
 
@@ -700,18 +703,21 @@ export default function BaseshGalaWebsite() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25"
+                  asChild
                 >
-                  Book Free Consultation
-                  <Calendar className="ml-2 h-6 w-6" />
+                  <Link href="/contact">
+                    Book Free Consultation
+                    <Calendar className="ml-2 h-6 w-6" />
+                  </Link>
                 </Button>
-                <Button
+                {/* <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 py-4 text-lg"
                 >
                   <Phone className="mr-2 h-6 w-6" />
                   Call Now
-                </Button>
+                </Button> */}
               </div>
             </motion.div>
           </div>
@@ -814,7 +820,7 @@ export default function BaseshGalaWebsite() {
           </div>
 
           <div className="border-t border-yellow-500/20 mt-12 pt-8 text-center text-gray-400">
-        <p>&copy; © 2025 | YOUTAG INFOTECH PVT. LTD. | All Rights Reserved</p>
+        <p>&copy; 2025 | Lead The Business | All Rights Reserved</p>
           </div>
         </div>
       </footer>

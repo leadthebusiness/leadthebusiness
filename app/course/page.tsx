@@ -43,6 +43,7 @@ interface Course {
   }
   instructor: string
   featured: boolean
+  type: string // Optional field for type
 }
 
 interface Category {
@@ -79,7 +80,8 @@ export default function CoursePage() {
         slug
       },
       instructor,
-      featured
+      featured,
+      type
     }`
 
     return await client.fetch(query)
@@ -329,14 +331,14 @@ export default function CoursePage() {
                         <CardHeader>
                           <div className="flex items-center justify-between mb-2">
                             <Badge variant="outline" className="border-yellow-500/30 text-yellow-400">
-                              {course.category?.title || "General"}
+                              {course.type || "Course"}
                             </Badge>
                             <div className="flex items-center gap-1">
                               <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                               <span className="text-sm text-gray-300">{course.rating || 4.8}</span>
                             </div>
                           </div>
-                          <CardTitle className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">
+                          <CardTitle className="text-xl font-bold text-black group-hover:text-yellow-400 transition-colors duration-300">
                             {course.title}
                           </CardTitle>
                           <CardDescription className="text-gray-400 line-clamp-2">{course.description}</CardDescription>
@@ -355,7 +357,7 @@ export default function CoursePage() {
                           </div>
 
                           <div className="flex items-center justify-between">
-                            <div className="text-2xl font-bold text-yellow-500">{formatPrice(course.price || 0)}</div>
+                            <div className="text-2xl font-bold text-yellow-500">{course.price === 0 ? "Free" : formatPrice(course.price)}</div>
                             <Link href={`/course/${course.slug.current}`}>
                               <Button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold">
                                 View Course
@@ -412,7 +414,7 @@ export default function CoursePage() {
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="outline" className="border-gray-700 text-gray-400">
-                            {course.category?.title || "General"}
+                            {(course.type ? course.type.charAt(0).toUpperCase() + course.type.slice(1) : "Event")}
                           </Badge>
                           <div className="flex items-center gap-1">
                             <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
@@ -431,14 +433,14 @@ export default function CoursePage() {
                             <Clock className="w-4 h-4" />
                             <span>{course.duration || "Self-paced"}</span>
                           </div>
-                          <div className="flex items-center gap-2">
+                          {/* <div className="flex items-center gap-2">
                             <Users className="w-4 h-4" />
                             <span>{course.studentsEnrolled || 0} students</span>
-                          </div>
+                          </div> */}
                         </div>
 
                         <div className="flex items-center justify-between">
-                          <div className="text-2xl font-bold text-yellow-500">{formatPrice(course.price || 0)}</div>
+                         <div className="text-2xl font-bold text-yellow-500"> {course.price === 0 ? "Free" : formatPrice(course.price)}</div>
                           <Link href={`/course/${course.slug.current}`}>
                             <Button
                               variant="outline"

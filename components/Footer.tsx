@@ -101,7 +101,7 @@ function Footer() {
           </div>
 
           <div className="border-t border-yellow-500/20 mt-12 pt-8 text-center text-gray-400">
-        <p>&copy; © 2025 | YOUTAG INFOTECH PVT. LTD. | All Rights Reserved</p>
+        <p>&copy; 2025 | Lead The Business | All Rights Reserved</p>
           </div>
         </div>
       </footer>

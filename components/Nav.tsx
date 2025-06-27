@@ -14,15 +14,13 @@ export default function Navigation() {
   // Navigation items
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Our Programs", href: "/programs" },
-    { name: "Course", href: "/course" },
-    { name: "Events", href: "/events" },
+    { name: "Course/Events", href: "/course" },
     { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },
-    { name: "About BG", href: "/about" },
+    { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
     { name: "Studio", href: "/studio" },
-    { name: "admin", href: "/admin" },
+    { name: "Admin", href: "/admin" },
 
   
   ]
