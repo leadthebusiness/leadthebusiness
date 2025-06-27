@@ -219,12 +219,12 @@ export default function CoursePage({ params }: CoursePageProps) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
-          <p className="text-gray-400 mb-8">{error || "The course you're looking for doesn't exist."}</p>
+          <h1 className="text-2xl font-bold mb-4">Event Not Found</h1>
+          <p className="text-gray-400 mb-8">{error || "The Events you're looking for doesn't exist."}</p>
           <Link href="/course">
             <Button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Courses
+              Back to Events
             </Button>
           </Link>
         </div>
@@ -251,7 +251,7 @@ export default function CoursePage({ params }: CoursePageProps) {
               className="text-gray-400 hover:text-yellow-500 hover:bg-yellow-500/10 transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Courses
+              Back to Events
             </Button>
           </Link>
         </div>
@@ -265,7 +265,7 @@ export default function CoursePage({ params }: CoursePageProps) {
               {/* Breadcrumb */}
               <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
                 <Link href="/course" className="hover:text-yellow-500 transition-colors">
-                  Courses
+                  Events
                 </Link>
                 <span>/</span>
                 <Link
@@ -295,7 +295,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <Button size="lg" className="bg-yellow-500/90 hover:bg-yellow-500 text-black font-semibold">
                     <Play className="w-6 h-6 mr-2" />
-                    Preview {course.type || "Course"}
+                    Preview {course.type || "Events"}
                   </Button>
                 </div>
               </div>
@@ -479,7 +479,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 transition={{ delay: 0.5 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6">Course Curriculum</h2>
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6">Events Curriculum</h2>
                 <div className="space-y-4">
                   {course.modules.map((module, moduleIndex) => (
                     <Card key={moduleIndex} className="bg-gray-900/30 border border-gray-800/50">

@@ -166,7 +166,7 @@ export default function CoursesCarousel() {
             <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full animate-spin mb-4 mx-auto flex items-center justify-center">
               <BookOpen className="w-8 h-8 text-black" />
             </div>
-            <p className="text-gray-400">Loading courses...</p>
+            <p className="text-gray-400">Loading Events...</p>
           </div>
         </div>
       </section>
@@ -207,13 +207,13 @@ export default function CoursesCarousel() {
         >
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-6 py-3 mb-8">
             <BookOpen className="w-5 h-5 text-yellow-500" />
-            <span className="text-yellow-400 text-sm font-medium">FEATURED COURSES</span>
+            <span className="text-yellow-400 text-sm font-medium">FEATURED EVENTS</span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-white">Transform with </span>
             <span className="text-yellow-500 relative">
-              Expert Courses & Events
+              Expert Events
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-transparent rounded-full" />
             </span>
           </h2>
@@ -226,7 +226,7 @@ export default function CoursesCarousel() {
           <div className="flex flex-wrap justify-center gap-8 mt-8">
             <div className="flex items-center gap-3 bg-gray-900/50 rounded-2xl px-6 py-3 border border-gray-800">
               <Award className="w-4 h-4 text-yellow-500" />
-              <span className="text-gray-300 font-medium">{courses.length}+ Courses/Events</span>
+              <span className="text-gray-300 font-medium">{courses.length}+ Events</span>
             </div>
           </div>
         </motion.div>
@@ -432,7 +432,7 @@ export default function CoursesCarousel() {
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300 group"
             >
               <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-              Explore All Courses/Events
+              Explore All Events
             </Button>
           </Link>
         </motion.div>

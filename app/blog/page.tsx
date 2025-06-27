@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, ArrowRight, BookOpen, TrendingUp, Loader2 } from "lucide-react"
 import { client, urlFor, type BlogPost } from "@/lib/sanity"
 import Navigation from "@/components/Nav"
+import Footer from "@/components/Footer"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -316,7 +317,7 @@ export default function BlogPage() {
           )}
 
           {/* Bottom CTA Section */}
-          {!loading && !error && posts.length > 0 && (
+          {/* {!loading && !error && posts.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -340,9 +341,11 @@ export default function BlogPage() {
                 </div>
               </div>
             </motion.div>
-          )}
+          )} */}
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

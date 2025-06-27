@@ -157,7 +157,7 @@ export default function CoursePage() {
           <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full animate-spin mb-4 mx-auto flex items-center justify-center">
             <Loader2 className="w-8 h-8 text-black" />
           </div>
-          <p className="text-gray-400">Loading courses...</p>
+          <p className="text-gray-400">Loading Events...</p>
         </div>
       </div>
     )
@@ -167,7 +167,7 @@ export default function CoursePage() {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h1 className="text-2xl font-bold mb-4">Error Loading Courses</h1>
+          <h1 className="text-2xl font-bold mb-4">Error Loading Events</h1>
           <p className="text-gray-400 mb-8">{error}</p>
           <Button
             onClick={() => window.location.reload()}
@@ -212,7 +212,7 @@ export default function CoursePage() {
           >
             <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-6 py-3 mb-8">
               <BookOpen className="w-5 h-5 text-yellow-500" />
-              <span className="text-yellow-400 text-sm font-medium">PROFESSIONAL COURSES</span>
+              <span className="text-yellow-400 text-sm font-medium">PROFESSIONAL EVENTS</span>
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -224,7 +224,7 @@ export default function CoursePage() {
             </h1>
 
             <p className="text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              Transform your entrepreneurial journey with our comprehensive courses designed by industry experts.
+              Transform your entrepreneurial journey with our comprehensive Events designed by industry experts.
             </p>
 
             {/* Stats */}
@@ -244,7 +244,7 @@ export default function CoursePage() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Search courses..."
+                  placeholder="Search Events..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition-colors duration-300"
@@ -263,7 +263,7 @@ export default function CoursePage() {
                       : "border-gray-700 text-gray-300 hover:border-yellow-500/50"
                   }
                 >
-                  All Courses
+                  All Events
                 </Button>
                 {categories.map((category) => (
                   <Button
@@ -293,7 +293,7 @@ export default function CoursePage() {
             >
               <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
                 <Star className="w-8 h-8 text-yellow-500" />
-                Featured Courses
+                Featured Events
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {courses
@@ -377,7 +377,7 @@ export default function CoursePage() {
           <motion.section variants={staggerContainer} initial="initial" animate="animate" className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-8">
               {selectedCategory === "all"
-                ? "All Courses"
+                ? "All Events"
                 : `${categories.find((cat) => cat.slug.current === selectedCategory)?.title} Courses`}
               <span className="text-gray-400 text-lg ml-2">({filteredCourses.length})</span>
             </h2>
@@ -385,7 +385,7 @@ export default function CoursePage() {
             {filteredCourses.length === 0 ? (
               <div className="text-center py-20">
                 <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-400 mb-2">No courses found</h3>
+                <h3 className="text-xl font-bold text-gray-400 mb-2">No Events found</h3>
                 <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
               </div>
             ) : (
@@ -446,7 +446,7 @@ export default function CoursePage() {
                               variant="outline"
                               className="border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50"
                             >
-                              View Course
+                              View Events
                               <ChevronRight className="w-4 h-4 ml-1" />
                             </Button>
                           </Link>
@@ -460,7 +460,7 @@ export default function CoursePage() {
           </motion.section>
 
           {/* Newsletter CTA */}
-          <motion.section
+          {/* <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -482,7 +482,7 @@ export default function CoursePage() {
                 </button>
               </div>
             </div>
-          </motion.section>
+          </motion.section> */}
         </div>
       </div>
       <Footer />

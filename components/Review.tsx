@@ -142,21 +142,12 @@ export default function TestimonialCarousel() {
         </div>
 
         {/* Floating 3D Elements */}
-        <FloatingElement className="top-20 left-10 hidden lg:block" delay={0}>
-          <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl shadow-2xl transform rotate-12 flex items-center justify-center">
-            <MessageCircle className="w-8 h-8 text-black" />
-          </div>
-        </FloatingElement>
-
+        
         <FloatingElement className="top-32 right-20 hidden lg:block" delay={2}>
           <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full shadow-xl"></div>
         </FloatingElement>
 
-        <FloatingElement className="bottom-40 left-20 hidden lg:block" delay={1}>
-          <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl shadow-2xl transform -rotate-12 flex items-center justify-center">
-            <Phone className="w-10 h-10 text-black" />
-          </div>
-        </FloatingElement>
+       
 
         <FloatingElement className="bottom-20 right-10 hidden lg:block" delay={3}>
           <div className="w-8 h-8 bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl shadow-lg transform rotate-45"></div>
