@@ -64,18 +64,17 @@ function Footer() {
         <div>
         
           <div className="space-y-2 text-gray-400">
-            <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Privacy Policy
+            <h2 className='text-yellow-500'>Pages</h2>
+            <Link href="/studio" className="block hover:text-yellow-500 transition-colors">
+         Studio
             </Link>
-            <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Terms 
+            <Link href="/admin" className="block hover:text-yellow-500 transition-colors">
+          Admin 
             </Link>
-            <Link href="#" className="block hover:text-yellow-500 transition-colors">
+            <Link href="/contact" className="block hover:text-yellow-500 transition-colors">
           Contact
             </Link>
-            <Link href="#" className="block hover:text-yellow-500 transition-colors">
-          Careers
-            </Link>
+           
           </div>
         </div>
 
@@ -84,16 +83,16 @@ function Footer() {
           <div className="space-y-3 text-gray-400">
             <div className="flex items-center space-x-2">
           <Mail className="w-4 h-4 text-yellow-500" />
-          <span>info@39solutions.com</span>
+          <span>info@leadthebusiness.in</span>
             </div>
             <div className="flex items-center space-x-2">
-          <Phone className="w-4 h-4 text-yellow-500" />
-          <span>+91 98765 43210</span>
+          {/* <Phone className="w-4 h-4 text-yellow-500" />
+          <span>+91 98765 43210</span> */}
             </div>
             <div className="flex items-center space-x-2">
-          <MapPin className="w-4 h-4 text-yellow-500" />
-          <Link href={"https://g.co/kgs/S3me1ea"}>
-            <span>Pitru Chhaya Building, 6, Naushir Bharucha Marg, Grant Road West, Grant Road (W), Tardeo, Mumbai, Maharashtra 400007</span>
+          <MapPin className="w-8 h-8 text-yellow-500" />
+          <Link href={""}>
+            <span>23-A ,Gagan Vihar, Harnathpura, Jhotwara,Niwaru Road,Jaipur,Rajasthan 302012</span>
           </Link>
             </div>
           </div>

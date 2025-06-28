@@ -278,8 +278,8 @@ export default function ContactPage() {
           >
             <p className="text-gray-400">
               Or reach out to us directly at{' '}
-              <a href="mailto:studiowork314@gmail.com" className="text-yellow-400 hover:text-yellow-300 transition-colors">
-                studiowork314@gmail.com
+              <a href="mailto:info@leadthebusiness.in" className="text-yellow-400 hover:text-yellow-300 transition-colors">
+                 info@leadthebusiness.in
               </a>
             </p>
           </motion.div>

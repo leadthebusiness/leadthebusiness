@@ -181,7 +181,7 @@ export default function CoursePage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden ">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden w-full lg:py-12 ">
       {/* Background Elements */}
       <Navigation />
       <div className="absolute inset-0">
@@ -350,10 +350,7 @@ export default function CoursePage() {
                               <Clock className="w-4 h-4" />
                               <span>{course.duration || "Self-paced"}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Users className="w-4 h-4" />
-                              <span>{course.studentsEnrolled || 0} students</span>
-                            </div>
+                           
                           </div>
 
                           <div className="flex items-center justify-between">

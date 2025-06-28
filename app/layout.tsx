@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        
         <script dangerouslySetInnerHTML={{
           __html: `
             (function() {

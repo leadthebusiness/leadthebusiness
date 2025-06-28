@@ -15,9 +15,9 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Riya Verma",
     role: "BBA Student, Jaipur",
-    review: "I was overwhelmed with business ideas and didn’t know where to start. One free call with Chandrabhan Sir helped me break it all down into simple, actionable steps. It felt like someone finally understood the chaos in my mind.",
+    review: "I was overwhelmed with business ideas and didn't know where to start. One free call with Chandrabhan Sir helped me break it all down into simple, actionable steps. It felt like someone finally understood the chaos in my mind.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face"
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><text y='50' font-size='50'>🧑‍🎓</text></svg>"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
     role: "Freelancer, Pune",
     review: "I used to think hustle was the only way. But through Lead The Business, I learned how to create systems that actually save me time. I now run my work more confidently — with less stress.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face"
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><text y='50' font-size='50'>🧑‍💻</text></svg>"
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     role: "Small Business Owner, Agra",
     review: "Even without paid courses, the free content from LTB gave me more clarity than 100s of random YouTube videos. Their mindset + strategy posts helped me get unstuck and build my own roadmap.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face"
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><text y='50' font-size='50'>👨‍💼</text></svg>"
   },
   {
     id: 4,
@@ -41,17 +41,18 @@ const testimonials: Testimonial[] = [
     role: "Early-stage Founder, Delhi",
     review: "Every conversation with Chandrabhan Sir feels like a reality check — and I love that. No fluff, just pure guidance. Today, I finally feel confident calling myself an entrepreneur.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&crop=face"
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><text y='50' font-size='50'>👩‍💼</text></svg>"
   },
   {
     id: 5,
     name: "Aditya Deshmukh",
     role: "Commerce Graduate, Indore",
-    review: "Most people give motivation. Lead The Business gives direction. I didn’t just feel inspired — I knew exactly what to do next.",
+    review: "Most people give motivation. Lead The Business gives direction. I didn't just feel inspired — I knew exactly what to do next.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face"
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><text y='50' font-size='50'>🎓</text></svg>"
   }
 ];
+
 
 const FloatingElement = ({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => (
   <div 
@@ -203,12 +204,9 @@ export default function TestimonialCarousel() {
                           <div className="flex flex-col items-center mb-6">
                             {/* Profile Image with 3D Border */}
                             <div className="relative mb-4">
-                              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full transform scale-110 blur-sm"></div>
-                              <img
-                                src={testimonial.image}
-                                alt={testimonial.name}
-                                className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-yellow-500 shadow-2xl"
-                              />
+                             <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full" />
+                              <div className="absolute inset-0 -z-50 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full transform scale-110 blur-sm"></div>
+
                               {/* Online indicator */}
                               <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-3 border-black flex items-center justify-center shadow-lg">
                                 <div className="w-1.5 h-1.5 bg-black rounded-full"></div>

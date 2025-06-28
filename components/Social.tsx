@@ -10,7 +10,7 @@ const SocialConnectSection = () => {
       iconColor: 'text-blue-500',
       followers: '7K+',
       action: 'Follow',
-      link: '#'
+      link: 'https://www.facebook.com/profile.php?id=61551078663563'
     },
     {
       name: 'INSTAGRAM',
@@ -18,7 +18,7 @@ const SocialConnectSection = () => {
       iconColor: 'text-pink-500',
       followers: '150+',
       action: 'Follow',
-      link: '#'
+      link: 'https://www.instagram.com/leadthebusinessofficial?igsh=MWQ1a21rNTZ2emxxdg=='
     },
  
   ];

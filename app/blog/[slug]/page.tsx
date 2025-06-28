@@ -11,6 +11,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, Clock, ArrowLeft, Share2, BookOpen, Eye, ChevronRight, User, Tag } from "lucide-react"
 import { client, urlFor, type BlogPost } from "@/lib/sanity"
 import { PortableText } from "@portabletext/react"
+import Navigation from "@/components/Nav"
+import Footer from "@/components/Footer"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -253,6 +255,7 @@ export default function BlogPage({ params }: BlogPageProps) {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <Navigation />
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl" />
@@ -319,10 +322,7 @@ export default function BlogPage({ params }: BlogPageProps) {
                 <span className="text-sm">{calculateReadingTime(post.content)} min read</span>
               </div>
 
-              <div className="flex items-center gap-2 text-gray-400">
-                <Eye className="w-4 h-4" />
-                <span className="text-sm">{Math.floor(Math.random() * 1000) + 100} views</span>
-              </div>
+              
 
               <Button
                 onClick={handleShare}
@@ -428,28 +428,7 @@ export default function BlogPage({ params }: BlogPageProps) {
       )}
 
       {/* Newsletter CTA */}
-      <motion.section variants={fadeInUp} initial="initial" animate="animate" className="relative z-10 py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/30 rounded-3xl border border-gray-800/50 p-8 lg:p-12">
-              <h3 className="text-3xl font-bold text-white mb-4">Stay Updated</h3>
-              <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-                Get the latest insights and business strategies delivered straight to your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition-colors duration-300"
-                />
-                <button className="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+     <Footer />
     </div>
   )
 }

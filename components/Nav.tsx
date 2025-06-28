@@ -19,8 +19,7 @@ export default function Navigation() {
     { name: "Blog", href: "/blog" },
    
     { name: "Contact Us", href: "/contact" },
-    { name: "Studio", href: "/studio" },
-    { name: "Admin", href: "/admin" },
+   
 
   
   ]
