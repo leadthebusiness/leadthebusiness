@@ -735,7 +735,7 @@ export default function BaseshGalaWebsite() {
         <div
           className="absolute inset-0 w-full h-full z-0"
           style={{
-        backgroundImage: "url('/')",
+        backgroundImage: "url('/footer-img.jpg')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -757,39 +757,29 @@ export default function BaseshGalaWebsite() {
          Lead The Business by Chandrabhan Singh Rajawat
           </p>
           <div className="flex space-x-4">
-             <Button
-          size="icon"
-          variant="outline"
-          className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
-            >
-          <Facebook className="w-5 h-5 text-black" />
-            </Button>
-            <Button
-          size="icon"
-          variant="outline"
-          className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
-            >
-          <Instagram className="w-5 h-5 text-black" />
-            </Button>
-            <Button
-          size="icon"
-          variant="outline"
-          className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
-            >
-          <Linkedin className="w-5 h-5 text-black" />
-            </Button>
-            <Button
-          size="icon"
-          variant="outline"
-          className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
-            >
-          <Youtube className="w-5 h-5 text-black" />
-            </Button>
+              <Link href="https://www.facebook.com/profile.php?id=61551078663563" target="_blank" rel="noopener noreferrer">
+              <Button
+              size="icon"
+              variant="outline"
+              className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
+              >
+              <Facebook className="w-5 h-5 text-black" />
+              </Button>
+            </Link>
+            <Link href="https://www.instagram.com/leadthebusinessofficial?igsh=MWQ1a21rNTZ2emxxdg%3D%3D" target="_blank" rel="noopener noreferrer">
+              <Button
+              size="icon"
+              variant="outline"
+              className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
+              >
+              <Instagram className="w-5 h-5 text-black" />
+              </Button>
+            </Link>
           </div>
         </div>
 
         <div>
-          <h4 className="font-bold text-yellow-500 mb-4">Services</h4>
+          <h4 className="font-bold text-yellow-500 mb-4">Pages</h4>
           <div className="space-y-2 text-gray-400">
             <Link href="#" className="block hover:text-yellow-500 transition-colors">
           Privacy Policy

@@ -3,19 +3,12 @@ import { Youtube, Facebook, Instagram, Linkedin, ArrowUp } from 'lucide-react';
 
 const SocialConnectSection = () => {
   const socialPlatforms = [
-    {
-      name: 'YOUTUBE',
-      icon: Youtube,
-      iconColor: 'text-red-500',
-      followers: '56K+',
-      action: 'Subscribe',
-      link: '#'
-    },
+   
     {
       name: 'FACEBOOK',
       icon: Facebook,
       iconColor: 'text-blue-500',
-      followers: '66K+',
+      followers: '7K+',
       action: 'Follow',
       link: '#'
     },
@@ -23,18 +16,11 @@ const SocialConnectSection = () => {
       name: 'INSTAGRAM',
       icon: Instagram,
       iconColor: 'text-pink-500',
-      followers: '92K+',
+      followers: '150+',
       action: 'Follow',
       link: '#'
     },
-    {
-      name: 'LINKEDIN',
-      icon: Linkedin,
-      iconColor: 'text-blue-600',
-      followers: '4K+',
-      action: 'Follow',
-      link: '#'
-    }
+ 
   ];
 
   const scrollToTop = () => {
@@ -57,13 +43,13 @@ const SocialConnectSection = () => {
         </div>
 
         {/* Social Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex justify-center flex-wrap gap-8">
           {socialPlatforms.map((platform, index) => {
             const IconComponent = platform.icon;
             return (
-              <div
+              <div 
                 key={platform.name}
-                className="group relative"
+                className="group relative min-w-[250px] w-full max-w-[300px] h-[350px] bg-gray-800 rounded-2xl overflow-hidden shadow-lg transition-transform transform hover:scale-105"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Gold border */}
