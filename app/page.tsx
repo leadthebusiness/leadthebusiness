@@ -29,6 +29,7 @@ import {
   ArrowRight,
   Zap,
   BarChart3,
+  Facebook,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -756,6 +757,13 @@ export default function BaseshGalaWebsite() {
          Lead The Business by Chandrabhan Singh Rajawat
           </p>
           <div className="flex space-x-4">
+             <Button
+          size="icon"
+          variant="outline"
+          className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
+            >
+          <Facebook className="w-5 h-5 text-black" />
+            </Button>
             <Button
           size="icon"
           variant="outline"

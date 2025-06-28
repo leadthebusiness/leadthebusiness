@@ -17,7 +17,7 @@ export default function Navigation() {
     { name: "Events", href: "/course" },
     { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },
-    { name: "About Us", href: "/about" },
+   
     { name: "Contact Us", href: "/contact" },
     { name: "Studio", href: "/studio" },
     { name: "Admin", href: "/admin" },
