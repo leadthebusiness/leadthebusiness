@@ -13,43 +13,43 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Priya Sharma",
-    role: "Software Manager",
-    review: "This course completely transformed my coding skills. The instructor's approach is incredible and the projects are very practical. Highly recommended!",
+    name: "Riya Verma",
+    role: "BBA Student, Jaipur",
+    review: "I was overwhelmed with business ideas and didn’t know where to start. One free call with Chandrabhan Sir helped me break it all down into simple, actionable steps. It felt like someone finally understood the chaos in my mind.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face"
   },
   {
     id: 2,
-    name: "Rahul Verma",
-    role: "Sales Executive",
-    review: "Amazing content and excellent teaching methodology. I was able to implement what I learned immediately in my job. Worth every penny!",
+    name: "Karan Shah",
+    role: "Freelancer, Pune",
+    review: "I used to think hustle was the only way. But through Lead The Business, I learned how to create systems that actually save me time. I now run my work more confidently — with less stress.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face"
   },
   {
     id: 3,
-    name: "Sneha Patel",
-    role: "UI/UX Designer",
-    review: "The design principles taught here are top-notch. My portfolio improved dramatically after completing this course. Fantastic experience!",
+    name: "Nikhil Taneja",
+    role: "Small Business Owner, Agra",
+    review: "Even without paid courses, the free content from LTB gave me more clarity than 100s of random YouTube videos. Their mindset + strategy posts helped me get unstuck and build my own roadmap.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face"
   },
   {
     id: 4,
-    name: "Arjun Kumar",
-    role: "Product Manager",
-    review: "Great course structure and very engaging content. The practical approach helped me understand complex concepts easily. Highly satisfied!",
+    name: "Sneha Ahuja",
+    role: "Early-stage Founder, Delhi",
+    review: "Every conversation with Chandrabhan Sir feels like a reality check — and I love that. No fluff, just pure guidance. Today, I finally feel confident calling myself an entrepreneur.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&crop=face"
   },
   {
     id: 5,
-    name: "Meera Singh",
-    role: "Marketing Specialist",
-    review: "Outstanding quality and comprehensive coverage. The instructor is very knowledgeable and supportive. This course exceeded my expectations!",
+    name: "Aditya Deshmukh",
+    role: "Commerce Graduate, Indore",
+    review: "Most people give motivation. Lead The Business gives direction. I didn’t just feel inspired — I knew exactly what to do next.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face"
   }
 ];
 
