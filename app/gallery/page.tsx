@@ -93,6 +93,7 @@ export default function GalleryPage() {
   }
 
   const closeModal = () => {
+    console.log('Closing modal')
     setSelectedImage(null)
   }
 
@@ -242,11 +243,11 @@ export default function GalleryPage() {
 
       {/* Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0  bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           {/* Close Button */}
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 z-60 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
           >
             <X className="h-6 w-6" />
           </button>
