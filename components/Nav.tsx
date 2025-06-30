@@ -14,6 +14,7 @@ export default function Navigation() {
   // Navigation items
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Events", href: "/course" },
     { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },

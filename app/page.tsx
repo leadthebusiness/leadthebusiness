@@ -478,24 +478,22 @@ export default function BaseshGalaWebsite() {
                 </h2>
               </div>
 
+             
+
               <p className="text-xl text-gray-300 leading-relaxed">
-               I'm Chandrabhan Singh Rajawat, CMD at YOUTAG Infotech Pvt. Ltd., Business Mentor, and Leadership Coach.
-                Over the past 10+ years, I’ve helped founders escape the cycle of confusion, overwork, and burnout by creating clear systems that work.
-                My goal? To help you build a business that doesn’t rely on constant hustle—but scales on solid foundations.
+             CHANDRABHAN SINGH RAJAWAT is an Indian Businessman and Motivational Speaker or Life Coach, Lawyer who is the founder and chairman of the Group of Companies or Organizations in India
                
               </p>
-
+              <p className="text-lg text-yellow-400 font-semibold mb-2">
+                Business Organization founded:
+              </p>
               <div className="space-y-4">
                 {[
-                  "CMD at YOUTAG Infotech Pvt. Ltd., Business Mentor & Leadership Coach",
-
-                  "10+ years of experience mentoring founders and entrepreneurs",
-
-"Helped founders escape confusion, overwork, and burnout",
-
-"Known for creating clear, repeatable business systems that work",
-
-"Focused on building businesses that scale without constant hustle",
+                  "YOUTAG INFOTECH PVT. LTD.",
+                  "YOUNET ECOM SOLUTION PVT. LTD.",
+                  "YOUNET TECHNOLOGY SERVICES PVT. LTD.",
+                  "YOUTAG EMART SOLUTION PVT. LTD.",
+                  "LEAD THE BUSINESS",
                 ].map((item, index) => (
                   <motion.div
                     key={item}
@@ -505,12 +503,21 @@ export default function BaseshGalaWebsite() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center space-x-3"
                   >
-                    <CheckCircle className="lg:w-6 lg:h-6  w-10 h-10 text-yellow-500" />
+                    <CheckCircle className="lg:w-6 lg:h-6 w-6 h-6 text-yellow-500" />
                     <span className="text-gray-300 text-lg">{item}</span>
                   </motion.div>
                 ))}
               </div>
-
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-4 text-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300 mt-8"
+                  asChild
+                >
+                  <Link href="/about">
+                    Learn More
+                    <ChevronRight className="ml-2 h-6 w-6" />
+                  </Link>
+                </Button>
              
             </motion.div>
           </div>

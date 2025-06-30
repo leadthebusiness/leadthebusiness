@@ -65,14 +65,23 @@ function Footer() {
         
           <div className="space-y-2 text-gray-400">
             <h2 className='text-yellow-500'>Pages</h2>
-            <Link href="/studio" className="block hover:text-yellow-500 transition-colors">
-         Studio
+            <Link href="/" className="block hover:text-yellow-500 transition-colors">
+              Home
             </Link>
-            <Link href="/admin" className="block hover:text-yellow-500 transition-colors">
-          Admin 
+            <Link href="/about" className="block hover:text-yellow-500 transition-colors">
+              About
+            </Link>
+            <Link href="/course" className="block hover:text-yellow-500 transition-colors">
+              Events
             </Link>
             <Link href="/contact" className="block hover:text-yellow-500 transition-colors">
-          Contact
+              Contact Us
+            </Link>
+            <Link href="/blog" className="block hover:text-yellow-500 transition-colors">
+            Blog
+            </Link>
+            <Link href="/gallery" className="block hover:text-yellow-500 transition-colors">
+              Gallery
             </Link>
            
           </div>
@@ -83,7 +92,7 @@ function Footer() {
           <div className="space-y-3 text-gray-400">
             <div className="flex items-center space-x-2">
           <Mail className="w-4 h-4 text-yellow-500" />
-          <span>info@leadthebusiness.in</span>
+          <span>careleadthebusiness@gmail.com</span>
             </div>
             <div className="flex items-center space-x-2">
           {/* <Phone className="w-4 h-4 text-yellow-500" />

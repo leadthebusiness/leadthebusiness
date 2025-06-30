@@ -190,7 +190,7 @@ export default function ContactPage() {
               {/* Phone (Optional) */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                  Phone Number <span className="text-gray-500">(Optional)</span>
+                  Phone Number * <span className="text-gray-500"></span>
                 </label>
                 <input
                   type="tel"
@@ -278,8 +278,8 @@ export default function ContactPage() {
           >
             <p className="text-gray-400">
               Or reach out to us directly at{' '}
-              <a href="mailto:info@leadthebusiness.in" className="text-yellow-400 hover:text-yellow-300 transition-colors">
-                 info@leadthebusiness.in
+              <a href="mailto:careleadthebusiness@gmail.com" className="text-yellow-400 hover:text-yellow-300 transition-colors">
+                 careleadthebusiness@gmail.com
               </a>
             </p>
           </motion.div>
