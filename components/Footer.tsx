@@ -101,7 +101,8 @@ function Footer() {
             <div className="flex items-center space-x-2">
           <MapPin className="w-8 h-8 text-yellow-500" />
           <Link href={""}>
-            <span>23-A ,Gagan Vihar, Harnathpura, Jhotwara,Niwaru Road,Jaipur,Rajasthan 302012</span>
+            <span>Address:- P.no- 678 Gokul Nagar , Kalwar Road Jhotwara, Jaipur , ( Rajasthan)
+Pin-302012</span>
           </Link>
             </div>
           </div>
