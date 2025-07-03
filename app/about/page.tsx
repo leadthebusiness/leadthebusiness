@@ -137,7 +137,8 @@ const AboutPage = () => {
                     <MapPin size={20} className="text-yellow-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-gray-300 leading-relaxed">
-                        Shri Jamuway Palace, Jeen Mata Nagar, Shekhwat Marg, Kalwar Road, Jhotwara, Jaipur, Rajasthan
+                        Address:- P.no- 678 Gokul Nagar , Kalwar Road Jhotwara, Jaipur , ( Rajasthan)
+Pin-302012
                       </p>
                       <div className="mt-3 px-3 py-1 bg-yellow-600/20 rounded-full inline-block">
                         <span className="text-yellow-400 text-sm font-medium">Jaipur, Rajasthan</span>
@@ -282,9 +283,10 @@ const AboutPage = () => {
                 <h3 className="text-xl font-semibold text-white">Office Address</h3>
               </div>
               <p className="text-gray-300">
-                P.no- 678 Gokul Nagar, Kalwar Road<br />
-                Jhotwara, Jaipur, Rajasthan<br />
-                Pin - 302012
+               
+
+                Address:- P.no- 678 Gokul Nagar , Kalwar Road Jhotwara, Jaipur , ( Rajasthan)
+Pin-302012
               </p>
             </div>
             
