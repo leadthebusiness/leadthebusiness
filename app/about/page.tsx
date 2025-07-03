@@ -83,7 +83,8 @@ const AboutPage = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                    <p className="text-gray-300"><span className="text-yellow-400 font-semibold">Village:</span> Ichhalwara (Madhopura) Todabhim, Karouli, Rajasthan</p>
+                    <p className="text-gray-300"><span className="text-yellow-400 font-semibold">Address:</span> P.no- 678 Gokul Nagar , Kalwar Road Jhotwara, Jaipur, Rajasthan
+Pin-302012</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
@@ -123,7 +124,7 @@ const AboutPage = () => {
               </div>
             </div>
             
-            <div className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 p-8 rounded-2xl border border-gray-800 hover:border-yellow-600/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-600/10 md:col-span-2 lg:col-span-1">
+            {/* <div className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 p-8 rounded-2xl border border-gray-800 hover:border-yellow-600/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-600/10 md:col-span-2 lg:col-span-1">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-full blur-xl group-hover:from-yellow-600/20 transition-all duration-300"></div>
               <div className="relative">
                 <div className="flex items-center gap-4 mb-6">
@@ -147,7 +148,7 @@ Pin-302012
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
