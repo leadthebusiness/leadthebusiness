@@ -83,6 +83,12 @@ function Footer() {
             <Link href="/gallery" className="block hover:text-yellow-500 transition-colors">
               Gallery
             </Link>
+            <Link href="/privacy-policy" className="block hover:text-yellow-500 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-condition" className="block hover:text-yellow-500 transition-colors">
+              Terms & Conditions
+            </Link>
            
           </div>
         </div>
