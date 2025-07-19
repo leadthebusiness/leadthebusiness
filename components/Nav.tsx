@@ -33,9 +33,7 @@ export default function Navigation() {
       className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-xl border-b border-yellow-500/20"
     >
 
-      {/*  */}
-      {/*  */}
-      {/*  */}
+     
       <div className="container mx-auto px-3 sm:px-4">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
