@@ -370,7 +370,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                           </div>
                         )}
                       </div>
-                      <div className="text-gray-800 text-sm">One-time payment • Lifetime access</div>
+                      
                     </div>
 
                     {/* Enroll Button - Large and Prominent */}
@@ -393,12 +393,12 @@ export default function CoursePage({ params }: CoursePageProps) {
                           </div>
                         )}
                       </Button>
-                      <div className="text-center text-gray-800 text-sm mt-3">30-day money-back guarantee</div>
+                      {/* <div className="text-center text-gray-800 text-sm mt-3">30-day money-back guarantee</div> */}
                     </div>
                   </div>
 
                   {/* Course Features */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 pt-6 border-t border-yellow-500/20">
+                  {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 pt-6 border-t border-yellow-500/20">
                     {course.lifetime && (
                       <div className="flex items-center gap-2 text-gray-300">
                         <Calendar className="w-4 h-4 text-yellow-500" />
@@ -419,7 +419,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                       <BookOpen className="w-4 h-4 text-yellow-500" />
                       <span className="text-sm">Resources</span>
                     </div>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </motion.section>

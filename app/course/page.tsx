@@ -253,7 +253,7 @@ export default function CoursePage() {
 
               {/* Category Filter */}
               <div className="flex items-center gap-2 flex-wrap">
-                <Filter className="w-5 h-5 text-gray-400" />
+                {/* <Filter className="w-5 h-5 text-gray-400" /> */}
                 <Button
                   onClick={() => setSelectedCategory("all")}
                   variant={selectedCategory === "all" ? "default" : "outline"}
@@ -357,7 +357,7 @@ export default function CoursePage() {
                             <div className="text-2xl font-bold text-yellow-500">{course.price === 0 ? "Free" : formatPrice(course.price)}</div>
                             <Link href={`/course/${course.slug.current}`}>
                               <Button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold">
-                                View Course
+                                View Event
                                 <ChevronRight className="w-4 h-4 ml-1" />
                               </Button>
                             </Link>
@@ -443,7 +443,7 @@ export default function CoursePage() {
                               variant="outline"
                               className="border-yellow-500/30 text-yellow-500 hover:bg-yellow-500/10 hover:border-yellow-500/50"
                             >
-                              View Events
+                              View Event
                               <ChevronRight className="w-4 h-4 ml-1" />
                             </Button>
                           </Link>
