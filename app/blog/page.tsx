@@ -10,7 +10,7 @@ import { Calendar, ArrowRight, BookOpen, TrendingUp, Loader2 } from "lucide-reac
 import { client, urlFor, type BlogPost } from "@/lib/sanity"
 import Navigation from "@/components/Nav"
 import Footer from "@/components/Footer"
-
+// 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
