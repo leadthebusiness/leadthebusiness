@@ -383,13 +383,8 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <Link href="/course" className="hover:text-yellow-500 transition-colors">
                   Events
                 </Link>
-                <span>/</span>
-                <Link
-                  href={`/course?category=${course.category?.slug.current}`}
-                  className="hover:text-yellow-500 transition-colors"
-                >
-                  {course.category?.title}
-                </Link>
+               
+               
                 <span>/</span>
                 <span className="text-white">{course.title}</span>
               </div>
