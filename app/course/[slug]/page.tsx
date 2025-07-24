@@ -399,7 +399,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <Image
                   src={
                     course.thumbnail
-                      ? urlFor(course.thumbnail).width(800).height(400).url()
+                      ? urlFor(course.thumbnail).url()
                       : "/placeholder.svg?height=400&width=800"
                   }
                   alt={course.title}
