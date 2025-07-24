@@ -46,6 +46,7 @@ interface Course {
   level: string
   studentsEnrolled: number
   rating: number
+  enrollUrl?: string
   category: {
     title: string
     slug: { current: string }
@@ -136,6 +137,7 @@ export default function CoursePage({ params }: CoursePageProps) {
       level,
       studentsEnrolled,
       rating,
+      enrollUrl,
       category->{
         title,
         slug
@@ -387,10 +389,18 @@ export default function CoursePage({ params }: CoursePageProps) {
                             Enrolling...
                           </div>
                         ) : (
-                          <div className="flex items-center gap-3">
+                            <div
+                            className="flex items-center gap-3"
+                            onClick={() => {
+                              if (course.enrollUrl) {
+                              window.open(course.enrollUrl, "_blank")
+                              }
+                            }}
+                            style={{ cursor: course.enrollUrl ? "pointer" : "default" }}
+                            >
                             <BookOpen className="w-6 h-6" />
                             Enroll Now
-                          </div>
+                            </div>
                         )}
                       </Button>
                       {/* <div className="text-center text-gray-800 text-sm mt-3">30-day money-back guarantee</div> */}

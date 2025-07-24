@@ -105,6 +105,16 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+    name: "enrollUrl",
+    title: "Enroll URL",
+    type: "url",
+    description: "Link to enroll in the course or event",
+    validation: (Rule) => Rule.required().uri({
+      allowRelative: false,
+      scheme: ['http', 'https']
+    }),
+  }),
+    defineField({
       name: "content",
       title: "Course Content",
       type: "blockContent",
