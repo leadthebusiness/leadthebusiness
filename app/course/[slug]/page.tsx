@@ -89,9 +89,9 @@ const CountdownTimer = ({ endDate }: { endDate: string }) => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const now = new Date().getTime()
-      const end = new Date(endDate).getTime()
-      const difference = end - now
+      const now = new Date()
+      const end = new Date(endDate)
+      const difference = end.getTime() - now.getTime()
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24))
@@ -313,8 +313,8 @@ export default function CoursePage({ params }: CoursePageProps) {
   // Check if offer is active (only check if end date exists and hasn't passed)
   const isOfferActive = () => {
     if (!course?.offerEndDate) return false
-    const now = new Date().getTime()
-    const end = new Date(course.offerEndDate).getTime()
+    const now = new Date()
+    const end = new Date(course.offerEndDate)
     return now < end
   }
 
@@ -399,7 +399,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <Image
                   src={
                     course.thumbnail
-                      ? urlFor(course.thumbnail).url()
+                      ? urlFor(course.thumbnail).width(800).height(400).url()
                       : "/placeholder.svg?height=400&width=800"
                   }
                   alt={course.title}
@@ -426,7 +426,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                     {course.level}
                   </Badge>
                   {course.originalPrice && course.originalPrice > course.price && (
-                    <Badge className="bg-red-500/20 text-red-400 border border-red-500/30">
+                    <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold">
                       {calculateDiscount()}% OFF
                     </Badge>
                   )}
@@ -482,7 +482,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                         </div>
                        
                         {course.originalPrice && course.originalPrice > course.price && (
-                          <div className="text-2xl lg:text-xl text-gray-500 line-through">
+                          <div className="text-2xl lg:text-2xl text-gray-500 line-through">
                             MRP {formatPrice(course.originalPrice)}
                           </div>
                         )}
@@ -497,9 +497,8 @@ export default function CoursePage({ params }: CoursePageProps) {
                         disabled={isEnrolling}
                         size="lg"
                         className={`w-full lg:w-auto font-bold px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl shadow-lg transition-all duration-300 ${
-                          isOfferActive() 
-                            ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-yellow-500/25 hover:shadow-yellow-500/40' 
-                            : 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-yellow-500/25 hover:shadow-yellow-500/40'
+                        
+                             'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-yellow-500/25 hover:shadow-yellow-500/40'
                         }`}
                       >
                         {isEnrolling ? (
