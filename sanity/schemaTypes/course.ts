@@ -114,6 +114,21 @@ export default defineType({
       scheme: ['http', 'https']
     }),
   }),
+  //originalPrice
+    defineField({
+      name: "originalPrice",
+      title: "Original Price (₹)",
+      type: "number",
+      description: "The original price before any discounts. Leave empty if not applicable.",
+      validation: (Rule) => Rule.min(0),
+    }),
+    //offer end date
+    defineField({
+      name: "offerEndDate",
+      title: "Offer End Date",
+      type: "datetime",
+      description: "The date when the current offer ends. Leave empty if not applicable.",
+    }),
     defineField({
       name: "content",
       title: "Course Content",

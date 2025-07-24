@@ -21,6 +21,8 @@ import {
   Target,
   Play,
   Calendar,
+  Zap,
+  AlertTriangle,
 } from "lucide-react"
 import { client, urlFor } from "@/lib/sanity"
 import { PortableText } from "@portabletext/react"
@@ -65,10 +67,113 @@ interface Course {
   lifetime: boolean
   language: string
   type: string
+  // Timer field
+  offerEndDate?: string
 }
 
 interface CoursePageProps {
   params: Promise<{ slug: string }>
+}
+
+interface TimeLeft {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
+// Countdown Timer Component
+const CountdownTimer = ({ endDate }: { endDate: string }) => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [isExpired, setIsExpired] = useState(false)
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime()
+      const end = new Date(endDate).getTime()
+      const difference = end - now
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+
+        setTimeLeft({ days, hours, minutes, seconds })
+        setIsExpired(false)
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+        setIsExpired(true)
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+
+    return () => clearInterval(timer)
+  }, [endDate])
+
+  if (isExpired) {
+    return (
+      <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border-2 border-red-500/50 rounded-xl p-4 mb-6">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <AlertTriangle className="w-5 h-5 text-red-400" />
+            <span className="text-red-400 font-bold text-lg">Offer Expired</span>
+          </div>
+          <p className="text-gray-400">This limited time offer has ended.</p>
+        </div>
+      </div>
+    )
+  }
+
+  const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+    <div className="flex flex-col items-center">
+      <div className="bg-gradient-to-br from-red-500 to-red-600 text-white font-bold text-lg lg:text-2xl rounded-lg p-2 lg:p-4 min-w-[50px] lg:min-w-[80px] shadow-lg">
+        {value.toString().padStart(2, '0')}
+      </div>
+      <span className="text-gray-300 text-xs lg:text-sm font-medium mt-1 lg:mt-2 uppercase tracking-wide">{label}</span>
+    </div>
+  )
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-gradient-to-br from-red-600/10 via-red-500/5 to-orange-600/10 border-2 border-red-500/30 rounded-xl p-3 lg:p-6 mb-6 relative overflow-hidden"
+    >
+      {/* Background animation */}
+      <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-transparent animate-pulse" />
+      
+      <div className="relative z-10">
+        <div className="text-center mb-3">
+          <div className="flex items-center justify-center gap-2 mb-1">
+            <Zap className="w-4 h-4 lg:w-5 lg:h-5 text-red-400 animate-pulse" />
+            <span className="text-red-400 font-bold text-base lg:text-xl">LIMITED TIME OFFER</span>
+            <Zap className="w-4 h-4 lg:w-5 lg:h-5 text-red-400 animate-pulse" />
+          </div>
+          <p className="text-gray-300 text-sm lg:text-base">Hurry! This exclusive discount ends in:</p>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 lg:gap-6">
+          <TimeUnit value={timeLeft.days} label="Days" />
+          <div className="text-red-400 text-xl lg:text-3xl font-bold animate-pulse">:</div>
+          <TimeUnit value={timeLeft.hours} label="Hours" />
+          <div className="text-red-400 text-xl lg:text-3xl font-bold animate-pulse">:</div>
+          <TimeUnit value={timeLeft.minutes} label="Minutes" />
+          <div className="text-red-400 text-xl lg:text-3xl font-bold animate-pulse">:</div>
+          <TimeUnit value={timeLeft.seconds} label="Seconds" />
+        </div>
+
+        <div className="text-center mt-3">
+          <p className="text-red-300 text-sm lg:text-base font-medium">
+            ⚡ Don't miss out on this exclusive deal!
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  )
 }
 
 // Custom components for PortableText
@@ -148,7 +253,8 @@ export default function CoursePage({ params }: CoursePageProps) {
       certificate,
       lifetime,
       language,
-      type
+      type,
+      offerEndDate
     }`
 
     return await client.fetch(query, { slug: courseSlug })
@@ -202,6 +308,14 @@ export default function CoursePage({ params }: CoursePageProps) {
   const calculateDiscount = () => {
     if (!course?.originalPrice || !course?.price) return 0
     return Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100)
+  }
+
+  // Check if offer is active (only check if end date exists and hasn't passed)
+  const isOfferActive = () => {
+    if (!course?.offerEndDate) return false
+    const now = new Date().getTime()
+    const end = new Date(course.offerEndDate).getTime()
+    return now < end
   }
 
   if (loading) {
@@ -285,7 +399,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 <Image
                   src={
                     course.thumbnail
-                      ? urlFor(course.thumbnail).width(800).height(400).url()
+                      ? urlFor(course.thumbnail).url()
                       : "/placeholder.svg?height=400&width=800"
                   }
                   alt={course.title}
@@ -295,19 +409,14 @@ export default function CoursePage({ params }: CoursePageProps) {
                   priority
                 />
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <Button size="lg" className="bg-yellow-500/90 hover:bg-yellow-500 text-black font-semibold">
-                    <Play className="w-6 h-6 mr-2" />
-                    Preview {course.type || "Events"}
-                  </Button>
+                 
                 </div>
               </div>
 
               {/* Course Title and Meta */}
               <div className="mb-6">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
-                    {course.category?.title}
-                  </Badge>
+                  
                   {course.featured && (
                     <Badge className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold">
                       Featured
@@ -333,21 +442,26 @@ export default function CoursePage({ params }: CoursePageProps) {
                     <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                     <span className="font-semibold text-white">{course.rating || 4.8}</span>
                   </div>
-                  {/* <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    <span>{course.studentsEnrolled || 0} students</span>
-                  </div> */}
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
                     <span>{course.duration}</span>
                   </div>
-                  {/* <div className="flex items-center gap-2">
-                    <Globe className="w-4 h-4" />
-                    <span>{course.language || "English"}</span>
-                  </div> */}
                 </div>
               </div>
             </motion.section>
+
+            {/* Countdown Timer - Only show if offer is active */}
+            {isOfferActive() && course.offerEndDate && (
+              <motion.section
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                transition={{ delay: 0.15 }}
+                className="mb-6"
+              >
+                <CountdownTimer endDate={course.offerEndDate} />
+              </motion.section>
+            )}
 
             {/* Pricing and Enroll Section - Prominent on Mobile */}
             <motion.section
@@ -362,13 +476,14 @@ export default function CoursePage({ params }: CoursePageProps) {
                   <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                     {/* Pricing */}
                     <div className="text-center lg:text-left">
-                      <div className="flex items-center justify-center lg:justify-start gap-4 mb-2">
+                      <div className="flex flex-col items-center justify-center lg:justify-start gap-4 mb-2">
                         <div className="text-3xl lg:text-4xl font-bold text-yellow-500">
-                          {course.price === 0 ? "Free" : formatPrice(course.price)}
+                         Offer Price {course.price === 0 ? "Free" : formatPrice(course.price)}
                         </div>
+                       
                         {course.originalPrice && course.originalPrice > course.price && (
-                          <div className="text-lg lg:text-xl text-gray-500 line-through">
-                            {formatPrice(course.originalPrice)}
+                          <div className="text-2xl lg:text-xl text-gray-500 line-through">
+                            MRP {formatPrice(course.originalPrice)}
                           </div>
                         )}
                       </div>
@@ -381,7 +496,11 @@ export default function CoursePage({ params }: CoursePageProps) {
                         onClick={handleEnroll}
                         disabled={isEnrolling}
                         size="lg"
-                        className="w-full lg:w-auto bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 transition-all duration-300"
+                        className={`w-full lg:w-auto font-bold px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl shadow-lg transition-all duration-300 ${
+                          isOfferActive() 
+                            ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-yellow-500/25 hover:shadow-yellow-500/40' 
+                            : 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black shadow-yellow-500/25 hover:shadow-yellow-500/40'
+                        }`}
                       >
                         {isEnrolling ? (
                           <div className="flex items-center gap-3">
@@ -399,37 +518,12 @@ export default function CoursePage({ params }: CoursePageProps) {
                             style={{ cursor: course.enrollUrl ? "pointer" : "default" }}
                             >
                             <BookOpen className="w-6 h-6" />
-                            Enroll Now
+                            {isOfferActive() ? "Enroll Now - Limited Time!" : "Enroll Now"}
                             </div>
                         )}
                       </Button>
-                      {/* <div className="text-center text-gray-800 text-sm mt-3">30-day money-back guarantee</div> */}
                     </div>
                   </div>
-
-                  {/* Course Features */}
-                  {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 pt-6 border-t border-yellow-500/20">
-                    {course.lifetime && (
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <Calendar className="w-4 h-4 text-yellow-500" />
-                        <span className="text-sm">Lifetime Access</span>
-                      </div>
-                    )}
-                    {course.certificate && (
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <Award className="w-4 h-4 text-yellow-500" />
-                        <span className="text-sm">Certificate</span>
-                      </div>
-                    )}
-                    <div className="flex items-center gap-2 text-gray-800">
-                      <Globe className="w-4 h-4 text-yellow-500" />
-                      <span className="text-sm">Mobile & Desktop</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-800">
-                      <BookOpen className="w-4 h-4 text-yellow-500" />
-                      <span className="text-sm">Resources</span>
-                    </div>
-                  </div> */}
                 </CardContent>
               </Card>
             </motion.section>
@@ -525,14 +619,10 @@ export default function CoursePage({ params }: CoursePageProps) {
                 </div>
               </motion.section>
             )}
-
-            {/* Final CTA */}
-
-           
           </div>
         </div>
       </div>
-            <Footer />
+      <Footer />
     </div>
   )
 }

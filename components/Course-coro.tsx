@@ -296,7 +296,7 @@ export default function CoursesCarousel() {
                         <Image
                           src={
                             course.thumbnail
-                              ? urlFor(course.thumbnail).width(400).height(200).url()
+                              ? urlFor(course.thumbnail).url()
                               : "/placeholder.svg?height=200&width=400"
                           }
                           alt={course.title}
