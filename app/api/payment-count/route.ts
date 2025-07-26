@@ -23,8 +23,14 @@ export async function GET() {
       throw new Error(`Cashfree API Error: ${response.status}`);
     }
 
+
+    
+
     const data = await response.json();
-    const count = data.payments ? data.payments.length : 0;
+    console.log('Payment Data:', data);
+    const count = Array.isArray(data)
+      ? data.filter((payment: any) => payment.payment_status === 'SUCCESS').length
+      : 0;
 
     return NextResponse.json({
       success: true,
