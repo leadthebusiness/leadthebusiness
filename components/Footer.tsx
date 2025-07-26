@@ -89,6 +89,9 @@ function Footer() {
             <Link href="/terms-and-condition" className="block hover:text-yellow-500 transition-colors">
               Terms & Conditions
             </Link>
+            <Link href="/cancellation-and-refund-policy" className="block hover:text-yellow-500 transition-colors">
+              Cancellation and Refund Policy
+            </Link>
            {/*  */}
           </div>
         </div>
