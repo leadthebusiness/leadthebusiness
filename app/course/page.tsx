@@ -54,6 +54,12 @@ interface Category {
   courseCount: number
 }
 
+interface PaymentStats {
+  totalPayments: number;
+  loading: boolean;
+  error: string | null;
+}
+
 export default function CoursePage() {
   const [courses, setCourses] = useState<Course[]>([])
   const [categories, setCategories] = useState<Category[]>([])
@@ -141,6 +147,47 @@ export default function CoursePage() {
 
     setFilteredCourses(filtered)
   }, [courses, selectedCategory, searchTerm])
+
+
+  const [stats, setStats] = useState<PaymentStats>({
+    totalPayments: 0,
+    loading: true,
+    error: null
+  });
+
+  useEffect(() => {
+    fetchPaymentCount();
+  }, []);
+
+  const fetchPaymentCount = async () => {
+    try {
+      setStats(prev => ({ ...prev, loading: true, error: null }));
+      
+      const response = await fetch('/api/payment-count');
+      const data = await response.json();
+      
+      if (data.success) {
+        setStats({
+          totalPayments: data.data.totalPayments,
+          loading: false,
+          error: null
+        });
+        console.log('Payment Count:', data.data.totalPayments);
+      } else {
+        setStats(prev => ({
+          ...prev,
+          loading: false,
+          error: data.error || 'Failed to fetch payment count'
+        }));
+      }
+    } catch (error) {
+      setStats(prev => ({
+        ...prev,
+        loading: false,
+        error: 'Network error occurred'
+      }));
+    }
+  };
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-IN", {

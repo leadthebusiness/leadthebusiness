@@ -113,6 +113,33 @@ const CountdownTimer = ({ endDate }: { endDate: string }) => {
     return () => clearInterval(timer)
   }, [endDate])
 
+  const [paymentCount, setPaymentCount] = useState<number>(0);
+
+  useEffect(() => {
+        const fetchPaymentCount = async () => {
+   
+
+    try {
+      const response = await fetch('/api/payment-count');
+      const data = await response.json();
+
+      if (data.success) {
+        setPaymentCount(data.count);
+      } else {
+        console.error('Error fetching payment count:', data.error);
+        setPaymentCount(0);
+      }
+
+    } catch (err) {
+      console.error('Error fetching payment count:', err);
+      setPaymentCount(0);
+    } finally {
+      console.log('Payment count fetched:', paymentCount);
+    }
+  };
+    fetchPaymentCount();
+  }, [])
+
   if (isExpired) {
     return (
       <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border-2 border-red-500/50 rounded-xl p-4 mb-6">
@@ -458,6 +485,42 @@ export default function CoursePage({ params }: CoursePageProps) {
               </motion.section>
             )}
 
+             {/* Seats Left Section */}
+            <motion.section
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={{ delay: 0.25 }}
+              className="mb-8"
+            >
+              <div className="flex flex-col items-center justify-center gap-2">
+                <div className="text-lg font-semibold text-yellow-400 flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  <span>
+                    {400 - (typeof window !== "undefined" && (window as any).paymentCount !== undefined
+                      ? (window as any).paymentCount
+                      : 0)}{" "}
+                    seats left
+                  </span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-3 mt-2 max-w-md">
+                  <div
+                    className="bg-gradient-to-r from-yellow-500 to-yellow-600 h-3 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${
+                        100 *
+                        ((400 -
+                          (typeof window !== "undefined" && (window as any).paymentCount !== undefined
+                            ? (window as any).paymentCount
+                            : 0)) /
+                          400)
+                      }%`,
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.section>
+
             {/* Pricing and Enroll Section - Prominent on Mobile */}
             <motion.section
               variants={fadeInUp}
@@ -521,6 +584,8 @@ export default function CoursePage({ params }: CoursePageProps) {
                 </CardContent>
               </Card>
             </motion.section>
+
+           
 
             {/* What You'll Learn */}
             {course.whatYouWillLearn && course.whatYouWillLearn.length > 0 && (
