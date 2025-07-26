@@ -37,7 +37,7 @@ function Footer() {
          Lead The Business by Chandrabhan Singh Rajawat
           </p>
           <div className="flex space-x-4">
-            <Link href="https://www.facebook.com/profile.php?id=61551078663563" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.facebook.com/p/Chandrabhaan-Singh-Rajawat-100075736696278/" target="_blank" rel="noopener noreferrer">
               <Button
               size="icon"
               variant="outline"
@@ -46,13 +46,22 @@ function Footer() {
               <Facebook className="w-5 h-5 text-black" />
               </Button>
             </Link>
-            <Link href="https://www.instagram.com/leadthebusinessofficial?igsh=MWQ1a21rNTZ2emxxdg%3D%3D" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.instagram.com/chandrabhaansinghofficial?igsh=MXVzeHR0eWFhZHpycQ==" target="_blank" rel="noopener noreferrer">
               <Button
               size="icon"
               variant="outline"
               className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
               >
               <Instagram className="w-5 h-5 text-black" />
+              </Button>
+            </Link>
+             <Link href="https://youtube.com/@chandrabhaansinghrajawat?si=9ORBu5iFvj4jfLQz" target="_blank" rel="noopener noreferrer">
+              <Button
+              size="icon"
+              variant="outline"
+              className="border-yellow-500/30 hover:bg-yellow-500 hover:text-black"
+              >
+              <Youtube className="w-5 h-5 text-black" />
               </Button>
             </Link>
           
