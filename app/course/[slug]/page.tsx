@@ -302,7 +302,7 @@ export default function CoursePage({ params }: CoursePageProps) {
     await new Promise((resolve) => setTimeout(resolve, 2000))
     setIsEnrolling(false)
     // Here you would typically redirect to payment or show success message
-    alert("Enrollment successful! You will be redirected to payment.")
+    
   }
 
   const calculateDiscount = () => {

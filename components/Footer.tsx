@@ -107,8 +107,7 @@ function Footer() {
             <div className="flex items-center space-x-2">
           <MapPin className="w-8 h-8 text-yellow-500" />
           <Link href={""}>
-            <span>Address:- P.no- 678 Gokul Nagar , Kalwar Road Jhotwara, Jaipur , ( Rajasthan)
-Pin-302012</span>
+            <span>address:- p.no- 678 shri Jamway Heights, gokul nagar, Opp. Shekhawat Marg, kalwar road jhotwara, jaipur, ( rajasthan) pin-302012</span>
           </Link>
             </div>
           </div>
