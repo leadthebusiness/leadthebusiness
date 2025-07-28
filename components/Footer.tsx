@@ -86,9 +86,9 @@ function Footer() {
             <Link href="/contact" className="block hover:text-yellow-500 transition-colors">
               Contact Us
             </Link>
-            <Link href="/blog" className="block hover:text-yellow-500 transition-colors">
+            {/* <Link href="/blog" className="block hover:text-yellow-500 transition-colors">
             Blog
-            </Link>
+            </Link> */}
             <Link href="/gallery" className="block hover:text-yellow-500 transition-colors">
               Gallery
             </Link>
