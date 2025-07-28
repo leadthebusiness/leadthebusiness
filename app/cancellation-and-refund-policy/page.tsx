@@ -41,6 +41,8 @@ const CancellationRefundPolicy: React.FC = () => {
             </div>
           </div>
 
+
+
           {/* Point 2 */}
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <div className="flex items-start space-x-3">
@@ -103,6 +105,21 @@ const CancellationRefundPolicy: React.FC = () => {
                     for the refund to be processed to the end customer.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+
+          {/* Point 5 */} 
+          <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+                5
+              </div>
+              <div className="flex-1">
+                <p className="text-gray-200 leading-relaxed">
+                  Refunds will be credited to the original payment method within <span className="text-blue-400 font-bold">5-7 business days</span>
+                </p>
               </div>
             </div>
           </div>
