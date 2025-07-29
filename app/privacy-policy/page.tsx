@@ -15,7 +15,7 @@ const PrivacyPolicy: React.FC = () => {
         {/* Introduction */}
         <div className="mb-8">
           <p className="text-gray-300 text-lg leading-relaxed">
-            At Lead The Business, we are committed to protecting your personal data and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you interact with our services, purchase our eBooks, book mentorship sessions, or download resources.
+            At Lead The Business, we are committed to protecting your personal data and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you interact with our service
           </p>
         </div>
 
@@ -48,7 +48,7 @@ const PrivacyPolicy: React.FC = () => {
             <div className="space-y-3 text-gray-300">
               <p>We use your data to:</p>
               <ul className="list-disc list-inside ml-4 space-y-2">
-                <li>Deliver eBooks, PDFs, or mentorship services you purchase</li>
+  
                 <li>Respond to inquiries or support requests</li>
                 <li>Improve our offerings based on analytics</li>
                 <li>Send important updates or offers (only with your consent)</li>
@@ -112,10 +112,10 @@ const PrivacyPolicy: React.FC = () => {
               <p className="flex items-center">
                 <span className="mr-2">📧</span>
                 <a 
-                  href="mailto:leadthebusinessinfo@gmail.com" 
+                  href="mailto:careleadthebusiness@gmail.com" 
                   className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
                 >
-                  leadthebusinessinfo@gmail.com
+                  careleadthebusiness@gmail.com
                 </a>
               </p>
             </div>
